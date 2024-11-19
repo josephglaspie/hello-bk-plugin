@@ -7,3 +7,5 @@ steps:
       - "https://github.com/josephglaspie/hello-buildkite-plugin":
           version: "v1.0.0"
     command: "echo Running Buildkite Step"
+    agents:
+      queue: "terraform-stage"
