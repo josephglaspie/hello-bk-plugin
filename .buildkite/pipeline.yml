@@ -1,3 +1,9 @@
 steps:
   - label: ":wave: Hello World"
     command: echo "Hello, World!"
+
+  - label: ":pipeline: Hello World Plugin"
+    plugins:
+      - "https://github.com/josephglaspie/hello-buildkite-plugin":
+          version: "v1.0.0"
+    command: "echo Running Buildkite Step"
