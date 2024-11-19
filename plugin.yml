@@ -1,0 +1,6 @@
+# plugin.yml
+name: "hello-buildkite-plugin"
+author: "Joseph Glaspie"
+description: "A simple Buildkite plugin that prints 'Hello, World!'"
+configuration:
+  properties: {}
