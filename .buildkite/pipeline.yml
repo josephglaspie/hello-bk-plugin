@@ -4,8 +4,7 @@ steps:
 
   - label: ":pipeline: Hello World Plugin"
     plugins:
-      - "https://github.com/josephglaspie/hello-buildkite-plugin":
-          version: "v1.0.0"
+    - ssh://git@code.hq.twilio.com/twilio/terraform-cloud-buildkite-plugin.git#${TWILIO_TERRAFORM_CLOUD_PLUGIN_VERSION?}:
     command: "echo Running Buildkite Step"
     agents:
       queue: "terraform-stage"
