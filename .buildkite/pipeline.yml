@@ -12,5 +12,5 @@ steps:
         : run_type: "apply"
           workspace: "flex-ews-isolated-dev"
     agents:
-      queue: terraform
+      queue: terraform-stage
     key: isolated_dev_apply
