@@ -2,8 +2,17 @@ steps:
   - label: ":wave: Hello World"
     command: echo "Hello, World!"
 
-  - label: ":pipeline: Hello World Plugin"
+  - label: ":terraform: Terraform apply - flex-isolated-dev-twilio (925039098390)"
     plugins:
-    - ssh://git@code.hq.twilio.com/twilio/terraform-cloud-buildkite-plugin.git#${TWILIO_TERRAFORM_CLOUD_PLUGIN_VERSION?}:
+      - artifacts#v1.9.0:
+          download:
+            - from: python_layer.zip
+              to: terraform/environments/isolated-dev
+      - ? ssh://git@code.hq.twilio.com/twilio/terraform-cloud-buildkite-plugin.git#${TWILIO_TERRAFORM_CLOUD_PLUGIN_VERSION?}
+        : run_type: "apply"
+          workspace: "flex-ews-isolated-dev"
     agents:
-      queue: "terraform-stage"
+      queue: terraform
+    key: isolated_dev_apply
+    depends_on:
+      - isolated_dev_plan
