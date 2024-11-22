@@ -14,5 +14,3 @@ steps:
     agents:
       queue: terraform
     key: isolated_dev_apply
-    depends_on:
-      - isolated_dev_plan
